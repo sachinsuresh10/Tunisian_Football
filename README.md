@@ -23,16 +23,41 @@ In the first phase, we implemented **YOLO** (You Only Look Once) for object dete
 
 ### How to Use:
 
-1. **Download the Dataset**: Download the annotated dataset from Roboflow by visiting the [Powerfoot Computer Vision Project](https://universe.roboflow.com/esprit-po5qf/powerfoot).
-2. **Input Videos**: Place the football match videos in the `input_videos/` folder. You can download sample input videos from [here](https://drive.google.com/file/d/1HkajT-JujZwkUuqEkI6U6CuCwx7BfcWS/view?usp=drive_link).
-3. **Trained YOLO Model**: Download the YOLO model from [here](https://drive.google.com/file/d/13WSdTF2D-uc_aSkuAIsdG9cetyqPvZaX/view?usp=drive_link) and place it in the `models/` folder.
-4. **Run the Script**: Execute the script to detect and track objects in the video. The output will consist of annotated videos and an Excel file containing player movements and other metrics.
+#### 1. **Download the Dataset**
 
-### Output:
-- **Annotated Videos**: Processed videos showing the detected and tracked players, referees, and ball.
-- **Excel Reports**: Data on player positions, ball possession, and match events.
+The dataset, which has been annotated for football matches, can be accessed via **Roboflow**.
 
-Download a sample output video [here](https://drive.google.com/file/d/1s2TuhMSsJfWNaijPv8VvBsUkiXqQ2lEj/view?usp=drive_link) and view the Excel sheet [here](https://docs.google.com/spreadsheets/d/1fCGVFfCSkONewrB1hoJljajUjM2X1Ue7/edit?usp=drive_link&ouid=112565924282064934387&rtpof=true&sd=true).
+- Go to the [Powerfoot Computer Vision Project on Roboflow](https://universe.roboflow.com/esprit-po5qf/powerfoot) to download different versions of the YOLO model (YOLOv3, YOLOv5, and YOLOv8) along with the corresponding dataset.
+- You can choose from different dataset formats compatible with various YOLO versions (e.g., COCO, Pascal VOC, YOLO format).
+
+#### 2. **Prepare the Input Videos**
+
+You will need input football match videos for object detection and tracking. You can use your own videos or download a sample from the provided link.
+
+- Download a sample football match video from [Example Tunisian Input Video](https://drive.google.com/file/d/1HkajT-JujZwkUuqEkI6U6CuCwx7BfcWS/view?usp=drive_link).
+- Place the video file in the `input_videos/` directory inside your project folder. If this folder doesn’t exist, create it manually.
+
+#### 3. **Download and Load the Trained YOLO Model**
+
+The project uses pre-trained YOLO models (YOLOv8 is recommended for the best results) for detecting players, referees, and the ball.
+
+- Download the pre-trained YOLOv8 model from [Example YOLOv8 Dataset](https://drive.google.com/file/d/13WSdTF2D-uc_aSkuAIsdG9cetyqPvZaX/view?usp=drive_link).
+- Place the downloaded model file (e.g., `.pt` or `.onnx` file) in the `models/` directory. If this folder doesn’t exist, create it manually.
+
+#### 4. **Run the Script**
+
+Execute the script to detect and track objects in the video. The output will consist of annotated videos and an Excel file containing player movements and other metrics.
+
+#### 5. **Output Files**
+
+After running the script, the system will process the video and output:
+
+- **Annotated Videos**: The output video with bounding boxes drawn around detected objects (players, referees, ball) will be saved in the `output_videos/` folder.
+- **Excel Data**: The system will generate a detailed **Excel file** containing metrics such as player positions, ball possession, and more. This file will be saved in the `output_data/` folder.
+
+You can download a sample output video from [Example Tunisian Output Video](https://drive.google.com/file/d/1s2TuhMSsJfWNaijPv8VvBsUkiXqQ2lEj/view?usp=drive_link).
+
+The corresponding sample Excel sheet is available [here](https://docs.google.com/spreadsheets/d/1fCGVFfCSkONewrB1hoJljajUjM2X1Ue7/edit?usp=drive_link&ouid=112565924282064934387&rtpof=true&sd=true).
 
 ---
 
@@ -72,3 +97,4 @@ To run this project, you need the following dependencies:
 pip install pandas matplotlib seaborn supervision
 pip install ultralytics
 pip install roboflow
+ 
