@@ -89,12 +89,19 @@ In the second phase, we focus on **Action Recognition**, aiming to detect and cl
 
 ---
 
-## Requirements
+# Requirements
 
-To run this project, you need the following dependencies:
+To run the Football Analytics Project, ensure you have the following dependencies installed:
 
-```bash
-pip install pandas matplotlib seaborn supervision
-pip install ultralytics
-pip install roboflow
- 
+## Python Libraries
+
+- **Python**: Version 3.x
+- **YOLO**:YOLOv3 or YOLOv5 or YOLOv8
+- **Roboflow**
+- **OpenCV**
+- **NumPy**
+- **Pandas**
+- **Matplotlib**
+- **Seaborn**
+- **Supervision**
+- **Ultralytics**
