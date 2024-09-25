@@ -10,7 +10,7 @@ from camera_movement_estimator import CameraMovementEstimator
 def main():
     # Read Video (Adjust video path as needed)
     print("Reading video...")
-    video_path = 'input_videos/DS1.mp4'
+    video_path = 'input_videos/Tunisian_1.mp4'
     video_frames, frame_rate = read_video(video_path)
     print(f"Number of video frames read: {len(video_frames)}")
     print(f"Frame rate of the video: {frame_rate}")
