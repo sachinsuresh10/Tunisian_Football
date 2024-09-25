@@ -1,4 +1,4 @@
-# Football Analytics Project
+# Tunisian Football League
 
 ## Overview
 
@@ -73,6 +73,7 @@ In the second phase, we focus on **Action Recognition**, aiming to detect and cl
 ### Steps Completed:
 1. **Action Annotation**: Using SuperAnnotate, we have labeled key actions such as passes, shots, and tackles from the input videos.
 2. **Dataset Ready for Model Training**: The dataset is now prepared for training action recognition models in future phases.
+![Action Annotation Example](Superannotate.PNG)
 
 ### Future Steps:
 - **Train Action Recognition Models**: Use the annotated dataset to train models like I3D and TCN for action recognition.
