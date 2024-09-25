@@ -1,69 +1,74 @@
 # Football Analytics Project
 
-## Introduction
+## Overview
 
-This project focuses on developing a hybrid data collection platform to automate the detection and tracking of football players, referees, and the ball in football match videos. The system is designed to process videos, detect key elements using computer vision models, and generate detailed match analysis outputs, such as player movement, ball possession, and match events. The first phase uses YOLO for object detection and ByteTrack for tracking, providing real-time insights into match dynamics.
+This project aims to develop a **hybrid data collection platform** for automating the detection and tracking of football players, referees, and the ball in match videos. The platform leverages **computer vision models** such as YOLO and ByteTrack to provide real-time insights into match dynamics, focusing on African football leagues where resource constraints limit the adoption of advanced analytics.
 
-This project is aimed at democratizing access to football analytics, especially in African leagues, where resource constraints and manual data collection have limited the use of advanced technologies. The ultimate goal is to bridge the gap between African and European football analytics, providing more data-driven insights for better decision-making in the sport.
+The project is structured in two phases:
+1. **Phase 1**: Object Detection and Tracking
+2. **Phase 2**: Action Recognition (Completed Annotation)
 
-## Dataset Preparation and Model Training
+The goal is to democratize football analytics and bridge the gap between African and European leagues by providing data-driven insights for improved decision-making.
 
-To get started with this project, the dataset has been created using **Roboflow** for image annotation and dataset management, and **YOLO** for object detection. The dataset can be accessed and downloaded for training YOLO models. Follow the steps below to download the dataset and use the trained models.
+---
 
-### Step 1: Download the Dataset from Roboflow
+## Phase 1: Object Detection and Tracking
 
-We captured the football matches streamed on **Diwan Sports** and uploaded selected video clips to **Roboflow**, where a dataset was created. You can access and download different versions of the YOLO model directly from the [Powerfoot Computer Vision Project](https://universe.roboflow.com/esprit-po5qf/powerfoot) on Roboflow.
+In the first phase, we implemented **YOLO** (You Only Look Once) for object detection and **ByteTrack** for tracking key entities such as players, referees, and the ball.
 
-To download the dataset and YOLO models for training, refer to the instructions and code provided in the `training/Roboflow_Dataset.ipynb` notebook. Please note that this notebook **only provides instructions for downloading the dataset and models, not for creating a new dataset**.
+### Features of Phase 1:
+- **Object Detection**: Accurate detection of players, referees, and the ball using YOLOv3, YOLOv5, and YOLOv8 models.
+- **Object Tracking**: Continuous tracking of objects across frames using ByteTrack, even in cases of occlusion or fast movements.
+- **Real-Time Insights**: Provides data on player movements, ball possession, and other metrics.
 
-Visit the [Powerfoot Computer Vision Project](https://universe.roboflow.com/esprit-po5qf/powerfoot) page to download versions of YOLO (YOLOv3, YOLOv5, and YOLOv8) along with the corresponding dataset.
+### How to Use:
 
-### Step 2: Put Input Videos, Model, and Run
+1. **Download the Dataset**: Download the annotated dataset from Roboflow by visiting the [Powerfoot Computer Vision Project](https://universe.roboflow.com/esprit-po5qf/powerfoot).
+2. **Input Videos**: Place the football match videos in the `input_videos/` folder. You can download sample input videos from [here](https://drive.google.com/file/d/1HkajT-JujZwkUuqEkI6U6CuCwx7BfcWS/view?usp=drive_link).
+3. **Trained YOLO Model**: Download the YOLO model from [here](https://drive.google.com/file/d/13WSdTF2D-uc_aSkuAIsdG9cetyqPvZaX/view?usp=drive_link) and place it in the `models/` folder.
+4. **Run the Script**: Execute the script to detect and track objects in the video. The output will consist of annotated videos and an Excel file containing player movements and other metrics.
 
-1. **Input Videos**: Download the input football match videos from [Example Tunisain_InputVideo](https://drive.google.com/file/d/1HkajT-JujZwkUuqEkI6U6CuCwx7BfcWS/view?usp=drive_link). Once downloaded, place them in the designated folder (`input_videos/`).
-2. **Trained Model**: Download the trained YOLO model from [Example Yolov8_Dataset](https://drive.google.com/file/d/13WSdTF2D-uc_aSkuAIsdG9cetyqPvZaX/view?usp=drive_link) and place it in the appropriate folder (`models/`).
-3. **Running the Model**: Execute the script to process the input videos. The system will automatically detect and track players, referees, and the ball. After processing, the output will include annotated videos and an Excel file containing relevant data, such as player movements and ball possession metrics.
+### Output:
+- **Annotated Videos**: Processed videos showing the detected and tracked players, referees, and ball.
+- **Excel Reports**: Data on player positions, ball possession, and match events.
 
-### Step 3: Output
+Download a sample output video [here](https://drive.google.com/file/d/1s2TuhMSsJfWNaijPv8VvBsUkiXqQ2lEj/view?usp=drive_link) and view the Excel sheet [here](https://docs.google.com/spreadsheets/d/1fCGVFfCSkONewrB1hoJljajUjM2X1Ue7/edit?usp=drive_link&ouid=112565924282064934387&rtpof=true&sd=true).
 
-- The output will consist of **annotated videos** showing the detected objects (players, referees, and ball) as well as an **Excel file** containing data on player tracking, ball possession, and more.
-- You can find the processed output videos in the `output_videos/` folder, or download them from [Example Tunisian_OutputVideo](https://drive.google.com/file/d/1s2TuhMSsJfWNaijPv8VvBsUkiXqQ2lEj/view?usp=drive_link).
-- The Excel file with detailed match analysis can be downloaded from [Example ](https://docs.google.com/spreadsheets/d/1fCGVFfCSkONewrB1hoJljajUjM2X1Ue7/edit?usp=drive_link&ouid=112565924282064934387&rtpof=true&sd=true).
+---
 
-## Phase 2: Action Recognition and SuperAnnotate
+## Phase 2: Action Recognition (Completed Annotation)
 
-To continue to the second phase of the project, we will focus on action recognition, identifying key football actions such as passes, shots, and goals.
+In the second phase, we focus on **Action Recognition**, aiming to detect and classify key football actions such as passes, shots, and goals.
 
-For this, the next step involves manual annotation of actions using **SuperAnnotate**, a powerful annotation tool that supports both manual and semi-automated annotations. SuperAnnotate allows for efficient labeling of complex sports actions, reducing the time spent on manual annotation. This annotated dataset will serve as the foundation for training action recognition models in the next phase.
+### Goals for Phase 2:
+- **Action Annotation**: We completed the manual and semi-automatic annotation of key football actions using **SuperAnnotate**.
+- **Model Training**: The next step is to train advanced models like **I3D** (Inflated 3D ConvNets) and **TCNs** (Temporal Convolutional Networks) to recognize and classify actions in real-time.
+- **Enhanced Real-Time Analysis**: Extend the platform's capabilities to not only track players but also recognize specific actions, leading to a deeper understanding of team strategies and player performance.
 
-Using SuperAnnotate, you can:
+### Steps Completed:
+1. **Action Annotation**: Using SuperAnnotate, we have labeled key actions such as passes, shots, and tackles from the input videos.
+2. **Dataset Ready for Model Training**: The dataset is now prepared for training action recognition models in future phases.
 
-1. Annotate actions such as passes, shots, and tackles from the input football videos.
-2. Prepare the dataset for training action recognition models in future phases.
+### Future Steps:
+- **Train Action Recognition Models**: Use the annotated dataset to train models like I3D and TCN for action recognition.
+- **Deploy and Test**: Integrate the action recognition models into the platform for real-time match analysis.
 
-This phase will focus on refining the system for more detailed football analysis, enhancing the platform's capabilities for real-time player and match analysis.
+---
 
-# Requirements
+## Future Directions
 
-To run the Football Analytics Project, ensure you have the following dependencies installed:
+1. **Expand the Dataset**: Continue to collect and annotate more football match videos, especially from different African leagues, to improve model robustness.
+2. **Advanced Action Recognition**: Incorporate more complex actions like tackles, dribbles, and fouls to provide deeper insights into match tactics.
+3. **Real-Time Analytics Dashboard**: Develop a live dashboard to display real-time statistics on player performance, ball possession, and key match events.
+4. **Collaboration and Expansion**: Partner with local leagues to expand the use of the platform across African football, adapting it to regional needs and conditions.
 
-## Python Libraries
+---
 
-- **Python**: Version 3.x
-- **YOLO**: YOLOv5 or YOLOv8
-- **Roboflow API**
-- **OpenCV**
-- **NumPy**
-- **Pandas**
-- **Matplotlib**
-- **SuperAnnotate**
+## Requirements
 
-## Installation
-
-You can install the necessary libraries using pip. Run the following commands:
+To run this project, you need the following dependencies:
 
 ```bash
 pip install pandas matplotlib seaborn supervision
 pip install ultralytics
 pip install roboflow
-
